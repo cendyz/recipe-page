@@ -1,0 +1,25 @@
+@mixin li-list {
+	font-weight: 400;
+	color: hsl(30, 10%, 34%);
+	li {
+		position: relative;
+		padding: 0.3em 0;
+		padding-left: 0.3em;
+		list-style: none;
+		line-height: 1.5;
+
+		&::before {
+			content: "\2022";
+			position: absolute;
+			left: -1.1em;
+			top: 50%;
+			transform: translateY(-50%);
+			font-size: 3rem;
+			color: hsl(332, 51%, 32%);
+		}
+
+		span {
+			font-weight: bold;
+		}
+	}
+}

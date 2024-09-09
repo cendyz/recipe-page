@@ -1,0 +1,132 @@
+@use "./utilities/reset";
+@use "./utilities/mixins" as mixins;
+
+body {
+	background-color: #f3e5d8;
+	font-family: "Outfit", sans-serif;
+	font-size: 16px;
+}
+
+.box {
+	background-color: hsl(0, 0%, 100%);
+	&__second-title {
+		margin-bottom: 0.5em;
+		font-size: 3rem;
+		font-family: "Young Serif", serif;
+		font-weight: 400;
+		color: hsl(14, 45%, 36%);
+	}
+
+	&__img {
+		height: 200px;
+		width: 100%;
+	}
+
+	&__content {
+		padding: 1.57em;
+		padding-bottom: 0;
+	}
+
+	&__title {
+		margin-bottom: 0.7em;
+		font-size: 3.6rem;
+		font-family: "Young Serif", serif;
+		font-weight: 400;
+		color: hsl(24, 5%, 18%);
+	}
+
+	&__info {
+		margin-bottom: 2em;
+		line-height: 1.5;
+		color: hsl(30, 10%, 34%);
+	}
+
+	&__prepare {
+		padding: 1.5em;
+		background-color: hsl(330, 100%, 98%);
+		border-radius: 8px;
+		&-title {
+			margin-bottom: 0.5em;
+			font-size: 2.3rem;
+			font-weight: 700;
+			color: hsl(332, 51%, 32%);
+		}
+		&-items {
+			padding-left: 2.5em;
+			@include mixins.li-list;
+		}
+	}
+
+	&__sections {
+		padding: 2em 0.5em;
+		border-bottom: 1px solid hsl(30, 18%, 87%);
+		&:last-child {
+			border-bottom: none;
+			padding-bottom: 0;
+		}
+
+		&-items {
+			padding-left: 2.4em;
+			@include mixins.li-list;
+		}
+
+		&-numbers {
+			li {
+				padding: 0.8em 0;
+				padding-top: 0;
+
+				&::before {
+					content: counter(list-item) ". ";
+					top: 0;
+					left: -1.6em;
+					transform: translateY(0);
+					font-size: 1.6rem;
+					font-weight: bold;
+				}
+			}
+		}
+
+		&-last,
+		&-table {
+			color: hsl(30, 10%, 34%);
+		}
+
+		&-table {
+			margin-top: 1.3em;
+			width: 100%;
+			&-items {
+				border-bottom: 1px solid hsl(30, 18%, 87%);
+				&:last-child {
+					border-bottom: none;
+				}
+				td {
+					padding: 1em 2em;
+					&:nth-child(2) {
+						color: hsl(14, 45%, 36%);
+						font-weight: 600;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (min-width: 576px) {
+	body {
+		display: flex;
+		justify-content: center;
+	}
+
+	.box {
+		padding: 2em;
+		margin: 5em 0;
+		width: 800px;
+		border-radius: 20px;
+		background-color: hsl(0, 0%, 100%);
+
+		&__img {
+			height: 350px;
+			border-radius: 10px;
+		}
+	}
+}
